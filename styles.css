@@ -1,6 +1,7 @@
 /* CSS Variables */
 :root {
     color-scheme: light dark;
+    --background-color: #ffffff;
     /* Colors */
     --primary-color: #2a4365;
     --accent-color: #e53e3e;
@@ -35,10 +36,10 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--bg-light);
+    background-color: var(--background-color);
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    background-color: var(--background-color, #ffffff);
+    margin: 0;
 }
 
 /* Add support for dark mode */
@@ -46,8 +47,13 @@ body {
     :root {
         --background-color: #000000;
     }
-    
-    body {
+
+    /* Ensure the navbar and other elements also use dark background */
+    .navbar {
+        background-color: var(--background-color);
+    }
+
+    .hero-section {
         background-color: var(--background-color);
     }
 }
@@ -55,6 +61,7 @@ body {
 /* Fix for iOS Safari */
 html {
     height: -webkit-fill-available;
+    background-color: var(--background-color);
 }
 
 /* Layout & Container */
@@ -62,6 +69,14 @@ html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-sm);
+}
+
+/* Make sure there's no white space at the top */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background-color);
 }
 
 [Previous content remains exactly the same until the end of the file]
