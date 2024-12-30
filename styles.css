@@ -1,7 +1,6 @@
 /* CSS Variables */
 :root {
     color-scheme: light dark;
-    --background-color: #ffffff;
     /* Colors */
     --primary-color: #2a4365;
     --accent-color: #e53e3e;
@@ -9,6 +8,7 @@
     --text-dark: #1a202c;
     --bg-light: #ffffff;
     --bg-dark: #2d3748;
+    --background-color: var(--bg-light);
     
     /* Shadows */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,11 +25,9 @@
     --spacing-lg: 4rem;
 }
 
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html {
+    height: -webkit-fill-available;
+    background-color: var(--background-color);
 }
 
 body {
@@ -42,13 +40,20 @@ body {
     margin: 0;
 }
 
-/* Add support for dark mode */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background-color);
+    /* Keep your existing navbar styles */
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
-        --background-color: #000000;
+        --background-color: var(--bg-dark);
+        --text-dark: var(--text-light);
     }
 
-    /* Ensure the navbar and other elements also use dark background */
     .navbar {
         background-color: var(--background-color);
     }
@@ -56,28 +61,26 @@ body {
     .hero-section {
         background-color: var(--background-color);
     }
+
+    /* Add these to ensure text is visible in dark mode */
+    .company-logo-text,
+    .nav-link,
+    .hero-content h1,
+    .hero-content h2,
+    .hero-content p,
+    .section-title,
+    .service-text,
+    .infographics-heading,
+    .infographic-text {
+        color: var(--text-light);
+    }
+
+    /* Adjust service icons for dark mode */
+    .service-icon.blue-icon {
+        color: #60a5fa; /* lighter blue for dark mode */
+    }
 }
 
-/* Fix for iOS Safari */
-html {
-    height: -webkit-fill-available;
-    background-color: var(--background-color);
-}
-
-/* Layout & Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-sm);
-}
-
-/* Make sure there's no white space at the top */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--background-color);
-}
-
+/* Keep all your existing styles below this point */
 [Previous content remains exactly the same until the end of the file]
 
