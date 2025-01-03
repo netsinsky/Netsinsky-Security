@@ -972,6 +972,20 @@ body {
         color: #ffffff;
         text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
     }
+
+    .company-logo-text {
+        background: linear-gradient(120deg, #0066cc 0%, #0052a3 50%, #003d7a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(0, 102, 204, 0.3),
+                     0 0 20px rgba(0, 102, 204, 0.2);
+    }
+
+    .company-logo-text span.capital {
+        background: linear-gradient(120deg, #0066cc 0%, #004c99 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 /* Update Smoke Effect */
